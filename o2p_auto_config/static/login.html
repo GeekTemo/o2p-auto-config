@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<h1 style="text-align: center">登录到O2P数据库</h1>
+
+<form action="login" method="post">
+    <table border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto; text-align: center">
+        <tr>
+            <td>O2P数据库主机:</td>
+            <td><input type="text" name="host"/></td>
+        </tr>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" name="user"/></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="passwords" name="passwd"/></td>
+        </tr>
+        <tr>
+            <td>数据库:</td>
+            <td><input type="text" name="db"/></td>
+        </tr>
+        <tr>
+            <td>端口:</td>
+            <td><input type="text" name="port"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="reset" value="重置" style="width: 150px"/>
+            </td>
+            <td>
+                <input type="submit" value="登录" style="width: 150px"/>
+            </td>
+        </tr>
+    </table>
+    <h4 style="text-align: center; margin-right: 50px"><a href="/static/about.html">关于O2P脚本自动生成工具</a></h4>
+</form>
+</body>
+</html>

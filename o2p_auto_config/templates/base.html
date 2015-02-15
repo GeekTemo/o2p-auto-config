@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>O2P-Config-Home</title>
+</head>
+<body>
+<h1 style="text-align: center">配置调用地址</h1>
+
+<form action="next" method="post">
+    <table border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto; text-align: center">
+        <tr>
+            <td>组织代码:<input type="text" name="orgcode"/></td>
+            </td>
+            <td>组织名称:<input type="text" name="orgname"/></td>
+        </tr>
+        <tr>
+            <td>调用路径:</td>
+            <td>
+                <select style="width: 100px;" name="protocol">
+                    <option value="webservice">webservice</option>
+                    <option value="rest">rest</option>
+                </select>
+                <input type="text" name="path"/>
+                <select style="width: 50px" name="action_method">
+                    <option value="post">post</option>
+                    <option value="get">get</option>
+                    <option value="put">put</option>
+                    <option value="delete">delete</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>配置方案</td>
+            <td>透传:
+                <input type="radio" checked="checked" name="configplan" value="tranis"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                协转:
+                <input type="radio" name="configplan" value="convert"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="reset" value="重置" style="width: 100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="下一步" style="width: 100px;"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

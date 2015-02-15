@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.json.JSONObject;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Node;
+import org.dom4j.XPath;
+
+String obj_path_2_xpath(obj_path) {
+	String xpath = "//*";
+	String[] pathInfo = obj_path.split("\\.");
+	for (String p : pathInfo) {
+		xpath += "[local-name()='" + p + "']/*";
+	}
+	xpath = xpath.substring(0, xpath.lastIndexOf("/*"));
+	return xpath;
+}
+
+set_xml_node_text(doc, objPath, text) {
+	String xPathStr = obj_path_2_xpath(objPath);
+	XPath xPath = doc.createXPath(xPathStr);
+	List list = xPath.selectNodes(doc);
+	if (list != null && list.size() > 0) {
+		Node node = (Node) list.get(0);
+		node.setText(text);
+	}
+}
+
+String get_json_value(root, objPath) {
+	if (!objPath.contains(".")) {
+		return root.getString(objPath);
+	}
+	String[] pathinfo = objPath.split("\\.");
+	List pathList = new ArrayList();
+	for (String p : pathinfo) {
+		pathList.add(p);
+	}
+	JSONObject tempJson = root;
+	String key = "";
+	while (pathList.size() != 1) {
+		key = (String) pathList.remove(0);
+		tempJson = tempJson.getJSONObject(key);
+	}
+	key = (String) pathList.remove(0);
+	return tempJson.getString(key);
+}
+
+String json_str = ${json_str};
+String xml_str = "${xml_str}";
+Document xml_doc = DocumentHelper.parseText(xml_str);
+JSONObject json_obj=JSONObject.fromObject(json_str);
+String rule_text = "${rule_text}";
+String[] rules = rule_text.split(";");
+for (String rule : rules) {
+	String[] map = rule.split("=");
+	set_xml_node_text(xml_doc, map[1], get_json_value(json_obj, map[0]));
+}
+String result_xml_str = xml_doc.asXML();

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1 style="text-align:center">透传</h1>
+
+<form action="/transm" method="post">
+    <table border="1" cellpadding="3" cellspacing="0" style="width: 70%;margin:auto; text-align: center">
+        <thead style="font-size: 20px;">
+        <td>发起方</td>
+        <td>落地方</td>
+        </thead>
+        <tr>
+            <td>
+                方法名:<input type="text" name="operation"/>
+            </td>
+            <td>调用地址:<input type="text" name="targeturl"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                请求参数:<textarea name="reqdoc" rows="20" cols="130"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="reset" value="重置" style="width: 100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="提交" style="width: 100px;"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

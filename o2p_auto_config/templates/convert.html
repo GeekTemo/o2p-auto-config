@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1 style="text-align:center">协转</h1>
+
+<form method="post" action="/convert">
+    <table border="1" cellpadding="3" cellspacing="0" style="width: 80%;margin:auto; text-align: left">
+        <thead>
+        <tr>
+            <td>发起方</td>
+            <td>映射:左边是源参数路径,右边是目标参数路径</td>
+            <td>落地方</td>
+        </tr>
+        </thead>
+        <tr>
+            <td>方法名:<input type="text" name="operation" style="width: 200px"/></td>
+            <td>&nbsp;</td>
+            <td>调用地址:<input type="text" name="target_url" style="width: 200px"/>
+                <br/>
+                协议:<select style="width: 100px;" name="target_protocol">
+                    <option value="webservice">webservice</option>
+                    <option value="rest">rest</option>
+                </select>
+                <br/>
+                方法名:<input type="text" name="target_method" style="width: 100px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>入参:<textarea name="input" rows="18" cols="75"></textarea></td>
+            <td><textarea name="input_map" rows="18" cols="80"></textarea></td>
+            <td>入参:<textarea name="target_input" rows="18" cols="75"></textarea></td>
+        </tr>
+        <tr>
+            <td>出参:<textarea name="output" rows="18" cols="75"></textarea></td>
+            <td><textarea name="output_map" rows="18" cols="80"></textarea></td>
+            <td>出参:<textarea name="target_output" rows="18" cols="75"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重置" style="width: 150px"/></td>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="提交" style="width: 150px"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
